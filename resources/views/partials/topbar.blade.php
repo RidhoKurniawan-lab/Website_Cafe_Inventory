@@ -35,9 +35,11 @@
                         <i class="mr-2 fas fa-cog"></i>Settings
                     </a>
                     <div class="border-t border-gray-100"></div>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                        <i class="mr-2 fas fa-sign-out-alt"></i>Sign out
-                    </a>
+                    <form id="formLogout">
+                        <button type="submit" class="block w-full px-4 py-2 text-sm text-left text-gray-700 cursor-pointer hover:bg-gray-100">
+                            <i class="mr-2 fas fa-sign-out-alt"></i>Sign out
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

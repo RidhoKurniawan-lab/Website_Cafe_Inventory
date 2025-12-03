@@ -2,15 +2,13 @@ document.addEventListener('DOMContentLoaded', initApp);
 
 
 function initApp() {
+    if (!document.getElementById('sidebar')) return;
+
     //define elements
     const sidebarToggleBtn = document.getElementById('sidebar-toggle');
     const sidebarCloseBtn = document.getElementById('sidebar-close');
     const userMenuBtn = document.getElementById('user-menu-button');
     const sidebarLinks = document.querySelectorAll('#sidebar a[data-page]');
-    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-    const dropdownContents = document.querySelectorAll('.dropdown-content');
-    const sidebarLists = document.getElementById('sidebar-list');
-    const sidebarListItems = sidebarLists.querySelectorAll('li');
 
     const sidebar = document.getElementById('sidebar');
     const overlay = document.getElementById('overlay');
@@ -22,13 +20,13 @@ function initApp() {
     closeSidebarOnOverlayClick(overlay, sidebar);
     toggleUserMenu(userMenuBtn, userMenu);
     closeUserMenuOnClickOutside(userMenuBtn, userMenu);
-    toggleDropdowns(dropdownToggles, dropdownContents);
-    activateSidebarLinks(sidebarListItems);
 
 }
 
 //activate sidebar links
-function activateSidebarLinks(sidebarListItems) {
+export function activateSidebarLinks() {
+    const sidebarLists = document.getElementById('sidebar-list');
+    const sidebarListItems = sidebarLists.querySelectorAll('li');
     sidebarListItems.forEach(item => {
         const link = item.querySelector('a');
         if (link !== null && link.classList.contains('active')) {
@@ -41,7 +39,10 @@ function activateSidebarLinks(sidebarListItems) {
 }
 
 //dropdown functionality
-function toggleDropdowns(dropdownToggles, dropdownContents) {
+export function toggleDropdowns() {
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    const dropdownContents = document.querySelectorAll('.dropdown-content');
+
     dropdownToggles.forEach(toggle => {
         toggle.addEventListener('click', function () {
             const Content = this.nextElementSibling;
